@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.movie.booking.entity.Registration;
+
 @WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -28,6 +30,7 @@ public class Login extends HttpServlet {
 		PrintWriter writer = response.getWriter();
 		HttpSession session = request.getSession();
 		session.setAttribute("email", request.getParameter("email"));
+		Registration register=new Registration();
 		try {
 			stmt = con.getConnection().createStatement();
 		} catch (ClassNotFoundException | SQLException e1) {
@@ -35,7 +38,8 @@ public class Login extends HttpServlet {
 		}
 		try {
 			resultset = stmt.executeQuery(
-					"SELECT EMAIL,PASSWORD FROM Registration WHERE EMAIL='" + session.getAttribute("email") + "'");
+					"SELECT * FROM Registration WHERE EMAIL='" + session.getAttribute("email") + "'");
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -49,6 +53,15 @@ public class Login extends HttpServlet {
 				if (request.getParameter("email").equals(resultset.getString("EMAIL"))
 
 						&& request.getParameter("password").equals(resultset.getString("PASSWORD"))) {
+
+					register.setFirstName(resultset.getString(2));
+					register.setLastName(resultset.getString(3));
+					register.setMobile(resultset.getString(4));
+					register.setEmail(resultset.getString(5));
+					register.setZipCode(resultset.getString(6));
+					register.setPassword(resultset.getString(7));
+					request.setAttribute("register", register);
+					session.setAttribute("userName",register.getFirstName());
 					RequestDispatcher display = request.getRequestDispatcher("genres.jsp");
 					display.forward(request, response);
 				} else {

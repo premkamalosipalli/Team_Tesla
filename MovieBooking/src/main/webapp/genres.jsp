@@ -4,9 +4,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Geners</title>
+<title>Genres</title>
 </head>
 <body>
 	<h1>Genres in Movies</h1>
+	<div align="right">
+		<h3 class="formh1">
+			Hello <span>${register.firstName}</span>
+		</h3>
+	</div>
+	<form action="genreSelect" method="post">
+		<h2 class="formh2" align="center">
+			<input type="hidden" name="register" value='${register.firstName}'><br>
+			Select beer Characteristics Color:<br> <select
+				class="formselect" name="genre" size="1">
+				<option value="default">Select Genre</option>
+				<option value="Adventure" selected="selected">Adventure</option>
+				<option value="action">Action</option>
+				<option value="drama">Drama</option>
+				<option value="comedy">Comedy</option>
+				<option value="thriller">Thriller/Suspense</option>
+				<option value="horror">Horror</option>
+				<option value="romantic">Romantic</option>
+				<option value="education">Education</option>
+			</select><br> <input class="forminput" type="submit" value="submit">
+		</h2>
+	</form>
 </body>
 </html>

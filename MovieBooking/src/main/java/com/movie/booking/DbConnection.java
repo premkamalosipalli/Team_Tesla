@@ -11,8 +11,9 @@ public class DbConnection {
 		Connection conn;
 		// Initialize all the information regarding
         // Database Connection
-        String dbDriver = "com.mysql.jdbc.Driver";
+        String dbDriver = "com.mysql.cj.jdbc.Driver";
         String dbURL = "jdbc:mysql://localhost:3306/movies";
+        
         // Database name to access
         String dbUsername = "root";
         String dbPassword = "password";

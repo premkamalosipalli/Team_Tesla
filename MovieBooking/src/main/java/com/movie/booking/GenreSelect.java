@@ -25,7 +25,7 @@ public class GenreSelect extends HttpServlet {
 		List result = genreDb.getMovies(genre);
 		request.setAttribute("styles", result);
 		request.setAttribute("user", session.getAttribute("userName"));
-		RequestDispatcher display = request.getRequestDispatcher("movie.jsp");
+		RequestDispatcher display = request.getRequestDispatcher("movies.jsp");
 		display.forward(request, response);	
 		
 	}

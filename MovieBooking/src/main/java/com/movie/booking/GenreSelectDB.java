@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import com.movie.booking.entity.GenreList;
-import com.movie.booking.entity.Registration;
 
 public class GenreSelectDB {
 	private final static Logger LOGGER =  
@@ -19,19 +18,14 @@ public class GenreSelectDB {
 		ResultSet resultset;
 		PreparedStatement pstmt;
 		try {
-			pstmt = con.getConnection().prepareStatement("SELECT * FROM  movie  where movieGenre =?");
+			pstmt = con.getConnection().prepareStatement("SELECT * FROM  movies  where movieGenre =?");
 			pstmt.setString(1, genreName);
 			resultset = pstmt.executeQuery();
 			while (resultset.next()) {
-				int movieId = resultset.getInt(1);
-				String movieName = resultset.getString(2);
+				String movieName = resultset.getString(1);
+				String movieGenre = resultset.getString(2);
 				String imageLocation = resultset.getString(3);
-				String movieGenre = resultset.getString(4);
-				String language = resultset.getString(5);
-				float movieCost = resultset.getFloat(6);
-				String length = resultset.getString(7);
-				String available = resultset.getString(8);
-				movieList.add(new GenreList(movieId, movieName, imageLocation, movieGenre, language, movieCost, length, available));
+				movieList.add(new GenreList(movieName, imageLocation, movieGenre));
 			}
 		} catch (ClassNotFoundException | SQLException e1) {
 			// TODO Auto-generated catch block

@@ -29,8 +29,8 @@
 		<table>
 			<c:forEach items="${styles}" var="movieObj">
 
-				<c:set var="beerId" value="${movieObj.movieId}" scope="session" />
-				<c:url var="productUrl" value="productDesc?beerId=${movieObj.movieId}"></c:url>
+				<c:set var="beerId" value="${movieObj.movieName}" scope="session" />
+				<c:url var="productUrl" value="MovieDesc?movieName=${movieObj.movieName}"></c:url>
 				<tr>
 					<td><a href="${productUrl}" target="_blank"><img
 							src="<c:out value ="${movieObj.imageLocation}"/>" width="160px"
@@ -40,10 +40,6 @@
 							<tr>
 								<td><b><a id="cart" href="${productUrl}"
 										target="_blank"><c:out value="${movieObj.movieName}" /></a></b></td>
-							</tr>
-							<tr>
-								<td><b><c:out value="$" /> <c:out
-											value="${movieObj.movieCost}" /></b></td>
 							</tr>
 						</table>
 					</td>

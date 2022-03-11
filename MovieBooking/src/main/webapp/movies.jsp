@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Movie List</title>
 </head>
 <body>
 	<div class="topnav">
@@ -29,7 +29,7 @@
 		<table>
 			<c:forEach items="${styles}" var="movieObj">
 
-				<c:set var="beerId" value="${movieObj.movieName}" scope="session" />
+				<c:set var="movieName" value="${movieObj.movieName}" scope="session" />
 				<c:url var="productUrl" value="MovieDesc?movieName=${movieObj.movieName}"></c:url>
 				<tr>
 					<td><a href="${productUrl}" target="_blank"><img

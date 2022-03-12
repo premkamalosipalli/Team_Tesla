@@ -120,7 +120,7 @@ div.topnav a {
 			</div>
 			<div>
 				<h2>
-					Cost:<a class="producta" href="#" id="demo">${movieList.movieCost}</a>
+					Movie Cost:<a class="producta" href="#" id="demo">${movieList.movieCost}</a>
 				</h2>
 			</div>
 			<hr>

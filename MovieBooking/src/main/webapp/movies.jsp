@@ -9,9 +9,9 @@
 </head>
 <body>
 	<div class="topnav">
-		<a href="Welcome.html">Home</a> 
-		<a href="SignIn.jsp">SignIn</a> 
-		<a href="SignUp.jsp">SignUp</a>
+		<a href="welcome.html">Home</a> 
+		<a href="logIn.jsp">SignIn</a> 
+		<a href="signUp.jsp">SignUp</a>
 		<a href="javascript:history.back()">Color
 			Selection</a>
 		<div align="right">

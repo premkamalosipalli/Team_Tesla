@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import com.movie.booking.entity.GenreList;
+import com.movie.booking.entity.GenreListEntity;
 
 public class GenreSelectDB {
 	private final static Logger LOGGER =  
             Logger.getLogger(Logger.GLOBAL_LOGGER_NAME); 
-		List<GenreList> getMovies(String genreName) {
-		List<GenreList> movieList = new ArrayList<GenreList>();
+		List<GenreListEntity> getMovies(String genreName) {
+		List<GenreListEntity> movieList = new ArrayList<GenreListEntity>();
 		DbConnection con=new DbConnection();
 		ResultSet resultset;
 		PreparedStatement pstmt;
@@ -25,7 +25,7 @@ public class GenreSelectDB {
 				String movieName = resultset.getString(1);
 				String movieGenre = resultset.getString(2);
 				String imageLocation = resultset.getString(3);
-				movieList.add(new GenreList(movieName, imageLocation, movieGenre));
+				movieList.add(new GenreListEntity(movieName, imageLocation, movieGenre));
 			}
 		} catch (ClassNotFoundException | SQLException e1) {
 			// TODO Auto-generated catch block

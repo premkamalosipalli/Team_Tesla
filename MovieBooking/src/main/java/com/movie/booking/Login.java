@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.movie.booking.entity.Registration;
+import com.movie.booking.entity.RegistrationEntity;
 
 @WebServlet("/login")
 public class Login extends HttpServlet {
@@ -30,7 +30,7 @@ public class Login extends HttpServlet {
 		PrintWriter writer = response.getWriter();
 		HttpSession session = request.getSession();
 		session.setAttribute("email", request.getParameter("email"));
-		Registration register=new Registration();
+		RegistrationEntity register=new RegistrationEntity();
 		try {
 			stmt = con.getConnection().createStatement();
 		} catch (ClassNotFoundException | SQLException e1) {

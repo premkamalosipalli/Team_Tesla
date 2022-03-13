@@ -16,10 +16,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.movie.booking.entity.Actors;
-import com.movie.booking.entity.CastTeam;
-import com.movie.booking.entity.Language;
-import com.movie.booking.entity.Movie;
+import com.movie.booking.entity.ActorsEntity;
+import com.movie.booking.entity.CastTeamEntity;
+import com.movie.booking.entity.LanguageEntity;
+import com.movie.booking.entity.MovieEntity;
 
 
 @WebServlet("/MovieDesc")
@@ -33,10 +33,10 @@ public class MovieDesc extends HttpServlet {
 		ResultSet resultset,resultset1, resultset2, resultset3, resultset4;
 		PreparedStatement pstmt, pstmt1, pstmt2, pstmt3, pstmt4;
 		HttpSession session = request.getSession();
-		Movie movieData =new Movie();
-		List<Language> languageList = new ArrayList<Language>();
-		List<Actors> actorsList = new ArrayList<Actors>();
-		List<CastTeam> castTeamList = new ArrayList<CastTeam>();
+		MovieEntity movieData =new MovieEntity();
+		List<LanguageEntity> languageList = new ArrayList<LanguageEntity>();
+		List<ActorsEntity> actorsList = new ArrayList<ActorsEntity>();
+		List<CastTeamEntity> castTeamList = new ArrayList<CastTeamEntity>();
 		int movie_id;
 		try {
 			pstmt = con.getConnection().prepareStatement("SELECT * FROM  movie  where movieName =?");
@@ -59,7 +59,7 @@ public class MovieDesc extends HttpServlet {
 					int language_id = resultset1.getInt(1);
 					String language = resultset1.getString(2);
 					int movieLanguage_id = resultset1.getInt(3);
-					languageList.add(new Language(language_id, language, movieLanguage_id));
+					languageList.add(new LanguageEntity(language_id, language, movieLanguage_id));
 					request.setAttribute("languageList", languageList);
 				}
 				pstmt2 = con.getConnection().prepareStatement("SELECT * FROM actors where movie_id=?");
@@ -70,7 +70,7 @@ public class MovieDesc extends HttpServlet {
 					String fullName = resultset2.getString(2);
 					String role = resultset2.getString(3);
 					int movieActors_id = resultset2.getInt(4);
-					actorsList.add(new Actors(actor_id, fullName, role, movieActors_id));
+					actorsList.add(new ActorsEntity(actor_id, fullName, role, movieActors_id));
 					request.setAttribute("actorsList", actorsList);
 				}
 				
@@ -82,7 +82,7 @@ public class MovieDesc extends HttpServlet {
 					String fullName = resultset3.getString(2);
 					int experience = resultset3.getInt(3);
 					int movieCast_id = resultset3.getInt(4);
-					castTeamList.add(new CastTeam(castTeam_id, fullName, experience, movieCast_id));
+					castTeamList.add(new CastTeamEntity(castTeam_id, fullName, experience, movieCast_id));
 					request.setAttribute("castTeamList", castTeamList);
 				}
 				

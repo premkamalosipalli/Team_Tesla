@@ -120,12 +120,12 @@ div.topnav a {
 			</div>
 			<div>
 				<h2>
-					Movie Cost:<a class="producta" href="#" id="demo">${movieList.movieCost}</a>
+					Movie Cost:<a class="producta" name="movieCost" href="#" id="demo">${movieList.movieCost}</a>
 				</h2>
 			</div>
 			<hr>
 			<div>
-				<form action="payNow" method="post">
+				<form action="authorize_payment" method="post">
 					No of People:<select id="quantity" name="quantity"
 						onchange="myFunction()">
 						<option value="1">1</option>
@@ -137,7 +137,8 @@ div.topnav a {
 						<option value="7">7</option>
 						<option value="8">8</option>
 						<option value="9">9</option>
-					</select> <input type="hidden" name="userid" value="${user}" />
+					</select> <input type="hidden" name="user" value="${user}" />
+					<input type="hidden" name="movieName" value="${movieList.movieName}" />
 					<button class="productbutton" value="Buy Now">Buy Now</button>
 				</form>
 				<br>

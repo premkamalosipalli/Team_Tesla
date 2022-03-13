@@ -1,6 +1,6 @@
 package com.movie.booking.entity;
 
-public class MovieList {
+public class MovieListEntity {
 	
 	String movieGenre;
 	String movieName;
@@ -14,10 +14,10 @@ public class MovieList {
 	float subtotal;
 	
 	
-	public MovieList() {
+	public MovieListEntity() {
 		super();
 	}
-	public MovieList(String movieGenre, String movieName, String imageLocation, String language, float movieCost,
+	public MovieListEntity(String movieGenre, String movieName, String imageLocation, String language, float movieCost,
 			float totalcost, int movieId, String currency, int quantity, float subtotal) {
 		this.movieGenre = movieGenre;
 		this.movieName = movieName;

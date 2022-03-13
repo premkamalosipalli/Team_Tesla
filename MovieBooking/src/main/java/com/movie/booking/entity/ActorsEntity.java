@@ -1,17 +1,17 @@
 package com.movie.booking.entity;
 
-public class Actors {
+public class ActorsEntity {
 	
 	int actor_id;
 	String fullName;
 	String role;
 	int movie_id;
 
-	public Actors() {
+	public ActorsEntity() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Actors(int actor_id, String fullName, String role, int movie_id) {
+	public ActorsEntity(int actor_id, String fullName, String role, int movie_id) {
 		super();
 		this.actor_id = actor_id;
 		this.fullName = fullName;

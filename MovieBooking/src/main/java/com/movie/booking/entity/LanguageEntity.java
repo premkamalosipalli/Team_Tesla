@@ -1,16 +1,16 @@
 package com.movie.booking.entity;
 
-public class Language {
+public class LanguageEntity {
 	
 	int language_id;
 	String language;
 	int movie_id;
 
-	public Language() {
+	public LanguageEntity() {
 	}
 
 	
-	public Language(int language_id, String language, int movie_id) {
+	public LanguageEntity(int language_id, String language, int movie_id) {
 		super();
 		this.language_id = language_id;
 		this.language = language;

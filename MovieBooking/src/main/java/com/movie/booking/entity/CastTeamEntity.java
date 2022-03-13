@@ -1,16 +1,16 @@
 package com.movie.booking.entity;
 
-public class CastTeam {
+public class CastTeamEntity {
 	
 	int castTeam_id;
 	String fullName;
 	int experience;
 	int movie_id;
 
-	public CastTeam() {
+	public CastTeamEntity() {
 	}
 
-	public CastTeam(int castTeam_id, String fullName, int experience, int movie_id) {
+	public CastTeamEntity(int castTeam_id, String fullName, int experience, int movie_id) {
 		super();
 		this.castTeam_id = castTeam_id;
 		this.fullName = fullName;

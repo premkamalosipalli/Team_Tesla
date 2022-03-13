@@ -1,15 +1,15 @@
 package com.movie.booking.entity;
 
-public class GenreList {
+public class GenreListEntity {
 	String movieName;
 	String imageLocation;
 	String movieGenre;
 
-	public GenreList() {
+	public GenreListEntity() {
 		super();
 	}
 
-	public GenreList(String movieName, String imageLocation, String movieGenre) {
+	public GenreListEntity(String movieName, String imageLocation, String movieGenre) {
 		this.movieName = movieName;
 		this.imageLocation = imageLocation;
 		this.movieGenre = movieGenre;

@@ -2,7 +2,7 @@ package com.movie.booking.entity;
 
 import java.sql.Date;
 
-public class Movie {
+public class MovieEntity {
 	
 	int movieId;
 	String movieName;
@@ -11,11 +11,11 @@ public class Movie {
 	String movieDesc;
 	Date movieDate;
 
-	public Movie() {
+	public MovieEntity() {
 	}
 
 	
-	public Movie(int movieId, String movieName, float movieCost, float movieLength, String movieDesc, Date movieDate) {
+	public MovieEntity(int movieId, String movieName, float movieCost, float movieLength, String movieDesc, Date movieDate) {
 		this.movieId = movieId;
 		this.movieName = movieName;
 		this.movieCost = movieCost;

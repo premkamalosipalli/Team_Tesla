@@ -1,6 +1,6 @@
 package com.movie.booking.entity;
 
-public class Registration {
+public class RegistrationEntity {
 
 	int reg_id;
 	String firstName;
@@ -10,12 +10,12 @@ public class Registration {
 	String zipCode;
 	String password;
 
-	public Registration() {
+	public RegistrationEntity() {
 		super();
 
 	}
 
-	public Registration(int reg_id, String firstName, String lastName, String mobile, String email, String zipCode,
+	public RegistrationEntity(int reg_id, String firstName, String lastName, String mobile, String email, String zipCode,
 			String password) {
 		this.reg_id = reg_id;
 		this.firstName = firstName;

@@ -1,17 +1,17 @@
 package com.movie.booking;
 
 import java.io.IOException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 
 import com.movie.booking.entity.MovieOrderEntity;
+import com.movie.booking.entity.OrderDetail;
+import com.movie.booking.entity.RegistrationEntity;
+import com.paypal.base.rest.PayPalRESTException;
 
 
 @WebServlet("/authorize_payment")
@@ -23,6 +23,7 @@ public class AuthorizePaymentServlet extends HttpServlet {
 	MovieOrderDb orderList = new MovieOrderDb();
 	boolean orderStatus = true, updatedOrderStatus;
 	
+	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		if(orderStatus != false) {
@@ -32,13 +33,33 @@ public class AuthorizePaymentServlet extends HttpServlet {
 		
 		List<MovieOrderEntity> movieOrderList = orderList.getOrder(request.getParameter("movieName"), orderStatus);
 		
+		int order_id = movieOrderList.get(0).getOrder_id();
+		int reg_id = movieOrderList.get(0).getReg_id();
 		String movieName = movieOrderList.get(0).getMovieName();
 		String email = movieOrderList.get(0).getEmail();
 		float movieCost = movieOrderList.get(0).getMovieCost();
 		int quantity = movieOrderList.get(0).getQuantity();
 		float totalCost = movieOrderList.get(0).getTotalCost();
+		boolean orderStatus = movieOrderList.get(0).isOrderStatus();
+		float shippingCost = 0;
+		float taxCost = 2;
+		float ticketCost = shippingCost+taxCost+totalCost;
 		
-		System.out.println(movieName+"\n"+email+"\n"+movieCost+"\n"+quantity+"\n"+totalCost);
+		RegistrationEntity registrationEntity = orderList.retrieveUser(request.getParameter("user"));
+		
+		OrderDetail orderDetail = new OrderDetail(movieName, totalCost, shippingCost, taxCost, ticketCost);
+		 
+        try {
+            PaymentServices paymentServices = new PaymentServices();
+            String approvalLink = paymentServices.authorizePayment(orderDetail,registrationEntity);
+ 
+            response.sendRedirect(approvalLink);
+             
+        } catch (PayPalRESTException ex) {
+            request.setAttribute("errorMessage", ex.getMessage());
+            ex.printStackTrace();
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
 		
 		orderList.updateOrderStatus(email,orderStatus);
 		

@@ -4,14 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Payment Error</title>
+<title>Payment Cancelled</title>
 </head>
 <body>
 <div align="center">
-    <h1>Payment Error</h1>
-    <br/>
-    <h3>${errorMessage}</h3>
-    <br/>
+	<h1>Payment Cancelled</h1>
+	<br/>
 </div>
 </body>
 </html>

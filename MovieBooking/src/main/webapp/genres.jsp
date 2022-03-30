@@ -5,14 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Genres</title>
+<link href="stylesheet.css" rel="stylesheet" />
 </head>
-<body>
-	<h1>Genres in Movies</h1>
+<body class="genre">
 	<div align="right">
 		<h3 class="formh1">
 			Hello <span>${register.firstName}</span>
 		</h3>
 	</div>
+	<h1 class="formh1" align="center">Genre Selection Page</h1>
 	<form action="genreSelect" method="post">
 		<h2 class="formh2" align="center">
 			<input type="hidden" name="register" value='${register.firstName}'><br>

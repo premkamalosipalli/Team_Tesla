@@ -50,7 +50,7 @@ public class PaymentServices {
     
     private RedirectUrls getRedirectURLs() {
         RedirectUrls redirectUrls = new RedirectUrls();
-        redirectUrls.setCancelUrl("http://localhost:8080/MovieBooking/cancel.html");
+        redirectUrls.setCancelUrl("http://localhost:8080/MovieBooking/cancel.jsp");
         redirectUrls.setReturnUrl("http://localhost:8080/MovieBooking/review_payment");
          
         return redirectUrls;

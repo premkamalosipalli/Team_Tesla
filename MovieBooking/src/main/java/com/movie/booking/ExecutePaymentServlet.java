@@ -25,9 +25,6 @@ public class ExecutePaymentServlet extends HttpServlet {
         String paymentId = request.getParameter("paymentId");
         String payerId = request.getParameter("PayerID");
         String emailId = request.getParameter("email");
-        String orderMessage = "Thanks " + emailId
-				+ " your Order has been Conformed.\nwith payment Id:" + paymentId
-				+ " .\n Hope we will see You again...";
  
         try {
             PaymentServices paymentServices = new PaymentServices();
@@ -37,11 +34,8 @@ public class ExecutePaymentServlet extends HttpServlet {
             Transaction transaction = payment.getTransactions().get(0);
              
             request.setAttribute("payer", payerInfo);
-            request.setAttribute("transaction", transaction);   
-   
-            /*Mailer mail = new Mailer();
-			mail.send("premkamalosipalli@gmail.com", "@y15ACS517", emailId,
-					"Order Conformed", orderMessage);*/
+            request.setAttribute("transaction", transaction); 
+            request.setAttribute("emailId", emailId);
  
             request.getRequestDispatcher("receipt.jsp").forward(request, response);
              

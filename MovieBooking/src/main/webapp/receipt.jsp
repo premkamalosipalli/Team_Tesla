@@ -1,18 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Payment Receipt</title>
-<style type="text/css">
-    table { border: 0; }
-    table td { padding: 5px; }
-</style>
-</head>
-<body>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +17,7 @@
     <table>
         <tr>
             <td><b>Merchant:</b></td>
-            <td>Company ABC Ltd.</td>
+            <td>Movie Booking Service.</td>
         </tr>
         <tr>
             <td><b>Payer:</b></td>
@@ -59,7 +45,14 @@
         </tr>                    
     </table>
 </div>
-</body>
-</html>
+<div align="center">
+	<form action="mailer.jsp" method="post">
+	<h4>Click button to receive email confirmation.</h4>
+	<input type="hidden" name="firstName" value="${payer.firstName}">
+	<input type="hidden" name="lastName" value="${payer.lastName}">
+	<input type="hidden" name="email" value="${emailId}">
+	<input type="submit" value="Receive Email">
+</form>
+</div>
 </body>
 </html>

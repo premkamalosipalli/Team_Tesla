@@ -6,8 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Movie List</title>
+<link href="stylesheet.css" rel="stylesheet" />
 </head>
-<body>
+<body class="resultbody">
 	<div class="topnav">
 		<a href="welcome.html">Home</a> 
 		<a href="logIn.jsp">SignIn</a> 

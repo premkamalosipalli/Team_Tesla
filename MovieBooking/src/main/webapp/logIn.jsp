@@ -11,9 +11,12 @@
 <script
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
 <script type="text/javascript" src="Validate.js"></script>
+<link href="stylesheet.css" rel="stylesheet" />
 </head>
-<body>
-	<h1>Login User</h1>
+<body class="signin">
+	<h1 align="center">Welcome to Movie Booking</h1>
+	<div class="container">
+		<h4 align="center">Log in to Continue</h4>
 	<form action="login" method="post" id="form" class="form">
 
 			<label class="label" for="email">Email</label> 
@@ -29,5 +32,6 @@
 			<br>
 			<button class="button" type="submit">Log in</button>
 		</form>
+	</div>
 </body>
 </html>

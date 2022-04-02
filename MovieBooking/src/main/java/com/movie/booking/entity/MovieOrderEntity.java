@@ -1,7 +1,7 @@
 package com.movie.booking.entity;
 
 public class MovieOrderEntity {
-	
+
 	int order_id;
 	int reg_id;
 	String email;
@@ -10,7 +10,7 @@ public class MovieOrderEntity {
 	int quantity;
 	float totalCost;
 	boolean orderStatus;
-	
+
 	public MovieOrderEntity(int order_id, int reg_id, String email, String movieName, float movieCost, int quantity,
 			float totalCost, boolean orderStatus) {
 		super();
@@ -91,5 +91,5 @@ public class MovieOrderEntity {
 	public void setOrderStatus(boolean orderStatus) {
 		this.orderStatus = orderStatus;
 	}
-	
+
 }

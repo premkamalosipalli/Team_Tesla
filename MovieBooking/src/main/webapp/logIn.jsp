@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,19 +17,15 @@
 	<h1 align="center">Welcome to Movie Booking</h1>
 	<div class="container">
 		<h4 align="center">Log in to Continue</h4>
-	<form action="login" method="post" id="form" class="form">
+		<form action="login" method="post" id="form" class="form">
 
-			<label class="label" for="email">Email</label> 
-			<input class="input" type="email" name="email"
-				id="email" placeholder="example@email.com" data-error="#Email" />
-			<span id="Email"></span> 
-			<br>
-			<label class="label" for="password">Password</label>
-		    <input class="input" type="password" name="password" id="password"
+			<label class="label" for="email">Email</label> <input class="input"
+				type="email" name="email" id="email" placeholder="example@email.com"
+				data-error="#Email" /> <span id="Email"></span> <br> <label
+				class="label" for="password">Password</label> <input class="input"
+				type="password" name="password" id="password"
 				placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
-				data-error="#Password" />
-		    <span id="Password"></span>
-			<br>
+				data-error="#Password" /> <span id="Password"></span> <br>
 			<button class="button" type="submit">Log in</button>
 		</form>
 	</div>

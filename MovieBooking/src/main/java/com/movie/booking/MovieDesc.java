@@ -21,19 +21,18 @@ import com.movie.booking.entity.CastTeamEntity;
 import com.movie.booking.entity.LanguageEntity;
 import com.movie.booking.entity.MovieEntity;
 
-
 @WebServlet("/MovieDesc")
 public class MovieDesc extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final static Logger LOGGER =  
-            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		DbConnection con=new DbConnection();
-		ResultSet resultset,resultset1, resultset2, resultset3, resultset4;
+		DbConnection con = new DbConnection();
+		ResultSet resultset, resultset1, resultset2, resultset3, resultset4;
 		PreparedStatement pstmt, pstmt1, pstmt2, pstmt3, pstmt4;
 		HttpSession session = request.getSession();
-		MovieEntity movieData =new MovieEntity();
+		MovieEntity movieData = new MovieEntity();
 		List<LanguageEntity> languageList = new ArrayList<LanguageEntity>();
 		List<ActorsEntity> actorsList = new ArrayList<ActorsEntity>();
 		List<CastTeamEntity> castTeamList = new ArrayList<CastTeamEntity>();
@@ -51,11 +50,11 @@ public class MovieDesc extends HttpServlet {
 				movieData.setMovieDate(resultset.getDate(6));
 				request.setAttribute("movieList", movieData);
 				movie_id = movieData.getMovieId();
-			
+
 				pstmt1 = con.getConnection().prepareStatement("SELECT * FROM language where movie_id=?");
 				pstmt1.setInt(1, movie_id);
 				resultset1 = pstmt1.executeQuery();
-				while(resultset1.next()) {
+				while (resultset1.next()) {
 					int language_id = resultset1.getInt(1);
 					String language = resultset1.getString(2);
 					int movieLanguage_id = resultset1.getInt(3);
@@ -65,7 +64,7 @@ public class MovieDesc extends HttpServlet {
 				pstmt2 = con.getConnection().prepareStatement("SELECT * FROM actors where movie_id=?");
 				pstmt2.setInt(1, movie_id);
 				resultset2 = pstmt2.executeQuery();
-				while(resultset2.next()) {
+				while (resultset2.next()) {
 					int actor_id = resultset2.getInt(1);
 					String fullName = resultset2.getString(2);
 					String role = resultset2.getString(3);
@@ -73,11 +72,11 @@ public class MovieDesc extends HttpServlet {
 					actorsList.add(new ActorsEntity(actor_id, fullName, role, movieActors_id));
 					request.setAttribute("actorsList", actorsList);
 				}
-				
+
 				pstmt3 = con.getConnection().prepareStatement("SELECT * FROM cast_team where movie_id=?");
 				pstmt3.setInt(1, movie_id);
 				resultset3 = pstmt3.executeQuery();
-				while(resultset3.next()) {
+				while (resultset3.next()) {
 					int castTeam_id = resultset3.getInt(1);
 					String fullName = resultset3.getString(2);
 					int experience = resultset3.getInt(3);
@@ -85,7 +84,7 @@ public class MovieDesc extends HttpServlet {
 					castTeamList.add(new CastTeamEntity(castTeam_id, fullName, experience, movieCast_id));
 					request.setAttribute("castTeamList", castTeamList);
 				}
-				
+
 				pstmt4 = con.getConnection().prepareStatement("SELECT movieLocation FROM  movies  where movieName =?");
 				pstmt4.setString(1, request.getParameter("movieName"));
 				resultset4 = pstmt4.executeQuery();

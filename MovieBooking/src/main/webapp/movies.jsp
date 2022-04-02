@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> 
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,10 +10,8 @@
 </head>
 <body class="resultbody">
 	<div class="topnav">
-		<a href="welcome.html">Home</a> 
-		<a href="logIn.jsp">SignIn</a> 
-		<a href="signUp.jsp">SignUp</a>
-		<a href="javascript:history.back()">Color
+		<a href="welcome.html">Home</a> <a href="logIn.jsp">SignIn</a> <a
+			href="signUp.jsp">SignUp</a> <a href="javascript:history.back()">Color
 			Selection</a>
 		<div align="right">
 			<h1>
@@ -31,7 +29,8 @@
 			<c:forEach items="${styles}" var="movieObj">
 
 				<c:set var="movieName" value="${movieObj.movieName}" scope="session" />
-				<c:url var="productUrl" value="MovieDesc?movieName=${movieObj.movieName}"></c:url>
+				<c:url var="productUrl"
+					value="MovieDesc?movieName=${movieObj.movieName}"></c:url>
 				<tr>
 					<td><a href="${productUrl}" target="_blank"><img
 							src="<c:out value ="${movieObj.imageLocation}"/>" width="160px"

@@ -20,14 +20,14 @@ public class GenreSelect extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		String genre = request.getParameter("genre");
-		GenreSelectDB genreDb = new  GenreSelectDB();
+		GenreSelectDB genreDb = new GenreSelectDB();
 		@SuppressWarnings("rawtypes")
 		List result = genreDb.getMovies(genre);
 		request.setAttribute("styles", result);
 		request.setAttribute("user", session.getAttribute("userName"));
 		RequestDispatcher display = request.getRequestDispatcher("movies.jsp");
-		display.forward(request, response);	
-		
+		display.forward(request, response);
+
 	}
 
 }

@@ -18,26 +18,27 @@ public class MovieOrderDb {
 	ResultSet resultset;
 
 	public void insertMovie(String firstName, String movieName, int quantity, boolean orderStatus) {
-		
+
 		MovieEntity movieData = retrieveMovie(movieName);
 		RegistrationEntity userData = retrieveUser(firstName);
-		
+
 		try {
-			pstmt = con.getConnection().prepareStatement("insert into movie_order"
-					+ " (reg_id, email, movieName, movieCost, quantity, totalCost, orderStatus) "
-					+ "values(?, ?, ?, ?, ?, ?, ?)");
+			pstmt = con.getConnection()
+					.prepareStatement("insert into movie_order"
+							+ " (reg_id, email, movieName, movieCost, quantity, totalCost, orderStatus) "
+							+ "values(?, ?, ?, ?, ?, ?, ?)");
 			pstmt.setInt(1, userData.getReg_id());
 			pstmt.setString(2, userData.getEmail());
 			pstmt.setString(3, movieData.getMovieName());
 			pstmt.setFloat(4, movieData.getMovieCost());
 			pstmt.setInt(5, quantity);
-			pstmt.setFloat(6, quantity*movieData.getMovieCost());
+			pstmt.setFloat(6, quantity * movieData.getMovieCost());
 			pstmt.setBoolean(7, orderStatus);
 			int insertStatus = pstmt.executeUpdate();
-	        if(insertStatus > 0) {
-	            System.out.println("Record is inserted successfully !!!");
-	         }
-			
+			if (insertStatus > 0) {
+				System.out.println("Record is inserted successfully !!!");
+			}
+
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -46,16 +47,17 @@ public class MovieOrderDb {
 			e.printStackTrace();
 		}
 	}
-	
-	List<MovieOrderEntity> getOrder(String Name, boolean orderStatus){
+
+	List<MovieOrderEntity> getOrder(String Name, boolean orderStatus) {
 		List<MovieOrderEntity> movieOrderList = new ArrayList<>();
-		
+
 		try {
-			pstmt = con.getConnection().prepareStatement("select * from movie_order where movieName=? and orderStatus=?");
+			pstmt = con.getConnection()
+					.prepareStatement("select * from movie_order where movieName=? and orderStatus=?");
 			pstmt.setString(1, Name);
 			pstmt.setBoolean(2, orderStatus);
 			resultset = pstmt.executeQuery();
-			while(resultset.next()) {
+			while (resultset.next()) {
 				int order_id = resultset.getInt(1);
 				int reg_id = resultset.getInt(2);
 				String email = resultset.getString(3);
@@ -64,21 +66,23 @@ public class MovieOrderDb {
 				int movieQuantity = resultset.getInt(6);
 				float totalCost = resultset.getFloat(7);
 				boolean status = resultset.getBoolean(8);
-				movieOrderList.add(new MovieOrderEntity(order_id, reg_id, email, movieName, movieCost, movieQuantity, totalCost, status));
-			}  
-			
+				movieOrderList.add(new MovieOrderEntity(order_id, reg_id, email, movieName, movieCost, movieQuantity,
+						totalCost, status));
+			}
+
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return movieOrderList;
 	}
-	
+
 	public void updateOrderStatus(String email, boolean orderStatus) {
 		try {
-			pstmt = con.getConnection().prepareStatement("update movie_order set orderStatus="+false+" where email=? and orderStatus=?");
+			pstmt = con.getConnection().prepareStatement(
+					"update movie_order set orderStatus=" + false + " where email=? and orderStatus=?");
 			pstmt.setString(1, email);
 			pstmt.setBoolean(2, orderStatus);
 			pstmt.executeUpdate();
@@ -89,7 +93,7 @@ public class MovieOrderDb {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	public MovieEntity retrieveMovie(String movieName) {

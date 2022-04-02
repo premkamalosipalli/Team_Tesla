@@ -1,7 +1,7 @@
 package com.movie.booking.entity;
 
 public class LanguageEntity {
-	
+
 	int language_id;
 	String language;
 	int movie_id;
@@ -9,14 +9,12 @@ public class LanguageEntity {
 	public LanguageEntity() {
 	}
 
-	
 	public LanguageEntity(int language_id, String language, int movie_id) {
 		super();
 		this.language_id = language_id;
 		this.language = language;
 		this.movie_id = movie_id;
 	}
-
 
 	public int getLanguage_id() {
 		return language_id;
@@ -42,5 +40,4 @@ public class LanguageEntity {
 		this.movie_id = movie_id;
 	}
 
-	
 }

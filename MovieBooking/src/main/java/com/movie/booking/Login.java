@@ -20,26 +20,26 @@ import com.movie.booking.entity.RegistrationEntity;
 @WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final static Logger LOGGER =  
-            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		DbConnection con=new DbConnection();
+		DbConnection con = new DbConnection();
 		Statement stmt = null;
 		ResultSet resultset = null;
 		PrintWriter writer = response.getWriter();
 		HttpSession session = request.getSession();
 		session.setAttribute("email", request.getParameter("email"));
-		RegistrationEntity register=new RegistrationEntity();
+		RegistrationEntity register = new RegistrationEntity();
 		try {
 			stmt = con.getConnection().createStatement();
 		} catch (ClassNotFoundException | SQLException e1) {
 			e1.printStackTrace();
 		}
 		try {
-			resultset = stmt.executeQuery(
-					"SELECT * FROM Registration WHERE EMAIL='" + session.getAttribute("email") + "'");
-			
+			resultset = stmt
+					.executeQuery("SELECT * FROM Registration WHERE EMAIL='" + session.getAttribute("email") + "'");
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,7 +61,7 @@ public class Login extends HttpServlet {
 					register.setZipCode(resultset.getString(6));
 					register.setPassword(resultset.getString(7));
 					request.setAttribute("register", register);
-					session.setAttribute("userName",register.getFirstName());
+					session.setAttribute("userName", register.getFirstName());
 					RequestDispatcher display = request.getRequestDispatcher("genres.jsp");
 					display.forward(request, response);
 				} else {

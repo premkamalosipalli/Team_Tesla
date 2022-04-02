@@ -15,8 +15,8 @@ public class RegistrationEntity {
 
 	}
 
-	public RegistrationEntity(int reg_id, String firstName, String lastName, String mobile, String email, String zipCode,
-			String password) {
+	public RegistrationEntity(int reg_id, String firstName, String lastName, String mobile, String email,
+			String zipCode, String password) {
 		this.reg_id = reg_id;
 		this.firstName = firstName;
 		this.lastName = lastName;

@@ -10,11 +10,11 @@ import java.util.logging.Logger;
 import com.movie.booking.entity.GenreListEntity;
 
 public class GenreSelectDB {
-	private final static Logger LOGGER =  
-            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME); 
-		List<GenreListEntity> getMovies(String genreName) {
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
+	List<GenreListEntity> getMovies(String genreName) {
 		List<GenreListEntity> movieList = new ArrayList<GenreListEntity>();
-		DbConnection con=new DbConnection();
+		DbConnection con = new DbConnection();
 		ResultSet resultset;
 		PreparedStatement pstmt;
 		try {
@@ -31,8 +31,7 @@ public class GenreSelectDB {
 			// TODO Auto-generated catch block
 			LOGGER.info("Error in BeerExpertDB Class");
 			e1.printStackTrace();
-			
-			
+
 		}
 		return movieList;
 	}

@@ -28,7 +28,7 @@ public class OrderDetail {
 	}
 
 	public String getSubtotal() {
-		return String.format("%.2f",subtotal);
+		return String.format("%.2f", subtotal);
 	}
 
 	public void setSubtotal(float subtotal) {
@@ -36,7 +36,7 @@ public class OrderDetail {
 	}
 
 	public String getShipping() {
-		return String.format("%.2f",shipping);
+		return String.format("%.2f", shipping);
 	}
 
 	public void setShipping(float shipping) {
@@ -44,7 +44,7 @@ public class OrderDetail {
 	}
 
 	public String getTax() {
-		return String.format("%.2f",tax);
+		return String.format("%.2f", tax);
 	}
 
 	public void setTax(float tax) {
@@ -52,7 +52,7 @@ public class OrderDetail {
 	}
 
 	public String getTotal() {
-		return String.format("%.2f",total);
+		return String.format("%.2f", total);
 	}
 
 	public void setTotal(float total) {

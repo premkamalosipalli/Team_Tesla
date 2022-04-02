@@ -66,9 +66,8 @@ div.topnav a {
 </head>
 <body class="productbody">
 	<div class="topnav">
-		<a href="welcome.html">Home</a> <a href="logIn.jsp">SignOut</a> 
-		<a href="javascript:history.back()">Movies
-			List</a>
+		<a href="welcome.html">Home</a> <a href="logIn.jsp">SignOut</a> <a
+			href="javascript:history.back()">Movies List</a>
 	</div>
 	<div align="right">
 		<h1>
@@ -137,13 +136,13 @@ div.topnav a {
 						<option value="7">7</option>
 						<option value="8">8</option>
 						<option value="9">9</option>
-					</select> <input type="hidden" name="user" value="${user}" />
-					<input type="hidden" name="movieName" value="${movieList.movieName}" />
+					</select> <input type="hidden" name="user" value="${user}" /> <input
+						type="hidden" name="movieName" value="${movieList.movieName}" />
 					<button class="productbutton" value="Buy Now">Buy Now</button>
 				</form>
 				<br>
-				<button onclick="cartFunction()" id="button" value="Buy Now"
-				>Add to Cart</button>
+				<button onclick="cartFunction()" id="button" value="Buy Now">Add
+					to Cart</button>
 
 			</div>
 		</div>

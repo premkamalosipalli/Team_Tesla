@@ -15,20 +15,20 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Registration")
 public class Registration extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final static Logger LOGGER =  
-            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ResultSet resultset;
 		PreparedStatement pstmt;
-		DbConnection con=new DbConnection();		
+		DbConnection con = new DbConnection();
 		PrintWriter writer = response.getWriter();
 		response.setContentType("text/html");
 		try {
 			pstmt = con.getConnection().prepareStatement("select email from  registration where email =?");
 			pstmt.setString(1, request.getParameter("email"));
 			resultset = pstmt.executeQuery();
-			if (!resultset.next()) {// STLOC_ID is not present in the table then insert it in the table..
+			if (!resultset.next()) {
 				pstmt = con.getConnection().prepareStatement(
 						"insert into registration(firstName,lastName,mobile,email,zipCode,password) values(?,?,?,?,?,?)");
 				pstmt.setString(1, request.getParameter("firstName"));
@@ -48,7 +48,7 @@ public class Registration extends HttpServlet {
 			// TODO Auto-generated catch block
 			LOGGER.info("Error in Registration Class");
 			e1.printStackTrace();
-			
+
 		}
 
 	}

@@ -3,7 +3,7 @@ package com.movie.booking.entity;
 import java.sql.Date;
 
 public class MovieEntity {
-	
+
 	int movieId;
 	String movieName;
 	float movieCost;
@@ -14,8 +14,8 @@ public class MovieEntity {
 	public MovieEntity() {
 	}
 
-	
-	public MovieEntity(int movieId, String movieName, float movieCost, float movieLength, String movieDesc, Date movieDate) {
+	public MovieEntity(int movieId, String movieName, float movieCost, float movieLength, String movieDesc,
+			Date movieDate) {
 		this.movieId = movieId;
 		this.movieName = movieName;
 		this.movieCost = movieCost;
@@ -23,7 +23,6 @@ public class MovieEntity {
 		this.movieDesc = movieDesc;
 		this.movieDate = movieDate;
 	}
-
 
 	public int getMovieId() {
 		return movieId;
@@ -73,5 +72,4 @@ public class MovieEntity {
 		this.movieDate = movieDate;
 	}
 
-	
 }

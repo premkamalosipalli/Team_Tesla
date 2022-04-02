@@ -38,6 +38,5 @@ public class GenreListEntity {
 	public void setMovieGenre(String movieGenre) {
 		this.movieGenre = movieGenre;
 	}
-	
 
 }

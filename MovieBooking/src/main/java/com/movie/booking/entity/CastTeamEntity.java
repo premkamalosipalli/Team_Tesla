@@ -1,7 +1,7 @@
 package com.movie.booking.entity;
 
 public class CastTeamEntity {
-	
+
 	int castTeam_id;
 	String fullName;
 	int experience;
@@ -50,5 +50,4 @@ public class CastTeamEntity {
 		this.movie_id = movie_id;
 	}
 
-	
 }

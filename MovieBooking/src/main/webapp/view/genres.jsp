@@ -5,12 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Genres</title>
-<link href="stylesheet.css" rel="stylesheet" />
+<link href="./css/stylesheet.css" rel="stylesheet" />
 </head>
 <body class="genre">
 	<div align="right">
 		<h3 class="formh1">
-			Hello <span>${register.firstName}</span>
+		<span>${register.firstName}</span>
 		</h3>
 	</div>
 	<h1 class="formh1" align="center">Genre Selection Page</h1>

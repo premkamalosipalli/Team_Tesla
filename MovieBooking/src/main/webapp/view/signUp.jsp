@@ -10,11 +10,12 @@
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
 <script
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
-<script type="text/javascript" src="Validation.js"></script>
+<script type="text/javascript" src="../js/Validation.js"></script>
+<link href="../css/stylesheet.css" rel="stylesheet" />
 </head>
 <body>
 	<h1>Create New Account</h1>
-	<form action="Registration" method="post" id="form" class="form">
+	<form action="../src/../Registration" method="post" id="form" class="form">
 
 		<label class="label" for="firstName">First Name</label> <input
 			class="input" type="text" name="firstName" id="firstName"

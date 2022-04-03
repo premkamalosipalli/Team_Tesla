@@ -1,4 +1,4 @@
-package com.movie.booking;
+package com.movie.booking.model;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,10 +34,7 @@ public class MovieOrderDb {
 			pstmt.setInt(5, quantity);
 			pstmt.setFloat(6, quantity * movieData.getMovieCost());
 			pstmt.setBoolean(7, orderStatus);
-			int insertStatus = pstmt.executeUpdate();
-			if (insertStatus > 0) {
-				System.out.println("Record is inserted successfully !!!");
-			}
+			pstmt.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -48,7 +45,7 @@ public class MovieOrderDb {
 		}
 	}
 
-	List<MovieOrderEntity> getOrder(String Name, boolean orderStatus) {
+	public List<MovieOrderEntity> getOrder(String Name, boolean orderStatus) {
 		List<MovieOrderEntity> movieOrderList = new ArrayList<>();
 
 		try {
@@ -86,11 +83,7 @@ public class MovieOrderDb {
 			pstmt.setString(1, email);
 			pstmt.setBoolean(2, orderStatus);
 			pstmt.executeUpdate();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 
@@ -111,10 +104,7 @@ public class MovieOrderDb {
 				movieData.setMovieDate(resultset.getDate(6));
 			}
 
-		} catch (ClassNotFoundException e) {
-
-			e.printStackTrace();
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 
 			e.printStackTrace();
 		}

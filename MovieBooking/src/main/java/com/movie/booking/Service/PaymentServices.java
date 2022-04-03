@@ -1,4 +1,4 @@
-package com.movie.booking;
+package com.movie.booking.Service;
 
 import java.util.*;
 
@@ -49,7 +49,7 @@ public class PaymentServices {
 
 	private RedirectUrls getRedirectURLs() {
 		RedirectUrls redirectUrls = new RedirectUrls();
-		redirectUrls.setCancelUrl("http://localhost:8080/MovieBooking/cancel.jsp");
+		redirectUrls.setCancelUrl("http://localhost:8080/MovieBooking/view/cancel.jsp");
 		redirectUrls.setReturnUrl("http://localhost:8080/MovieBooking/review_payment");
 
 		return redirectUrls;
@@ -57,9 +57,6 @@ public class PaymentServices {
 
 	private List<Transaction> getTransactionInformation(OrderDetail orderDetail) {
 		Details details = new Details();
-		// details.setShipping("1");
-		// details.setSubtotal("5");
-		// details.setTax("1");
 
 		details.setShipping(orderDetail.getShipping());
 		details.setSubtotal(orderDetail.getSubtotal());

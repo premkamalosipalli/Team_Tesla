@@ -1,4 +1,4 @@
-package com.movie.booking;
+package com.movie.booking.controller;
 
 import java.io.IOException;
 import java.sql.*;
@@ -8,9 +8,12 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
+import com.movie.booking.Service.PaymentServices;
 import com.movie.booking.entity.MovieOrderEntity;
 import com.movie.booking.entity.OrderDetail;
 import com.movie.booking.entity.RegistrationEntity;
+import com.movie.booking.model.DbConnection;
+import com.movie.booking.model.MovieOrderDb;
 import com.paypal.base.rest.PayPalRESTException;
 
 @WebServlet("/authorize_payment")
@@ -58,7 +61,7 @@ public class AuthorizePaymentServlet extends HttpServlet {
 			} catch (PayPalRESTException ex) {
 				request.setAttribute("errorMessage", ex.getMessage());
 				ex.printStackTrace();
-				request.getRequestDispatcher("error.jsp").forward(request, response);
+				request.getRequestDispatcher("view/error.jsp").forward(request, response);
 			}
 
 			orderList.updateOrderStatus(email, orderStatus);

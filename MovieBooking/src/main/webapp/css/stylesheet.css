@@ -1,9 +1,10 @@
 @charset "ISO-8859-1";
+
 .welcomebody {
 	font-family: "Open Sans";
 	font-size: 20px;
-	background: url("Images/welcome.jpeg");
-	color: #ddd;
+	background: url("../img/welcome.jpeg");
+	color: white;
 }
 
 #welcomeinput {
@@ -12,9 +13,10 @@
 }
 
 .footer {
-	position: relative;
+	position: fixed;
 	bottom: 0;
 	height: 60px;
+	width: 100%;
 	margin-top: 40px;
 	text-align: center;
 	font-size: medium;
@@ -35,11 +37,11 @@
 	padding: 0;
 }
 
-.signin,.signup {
+.signin, .signup {
 	font-family: "Open Sans";
 	font-size: 14px;
-	background: url("Images/3.jpg");
-	color: white
+	background: url("../img/welcome.jpeg");
+	color: white;
 }
 
 .form {
@@ -49,7 +51,16 @@
 	border-radius: 4px;
 }
 
-.label,.input,.button {
+.genre {
+	padding: 20px;
+	border-radius: 4px;
+	font-family: "Open Sans";
+	font-size: 20px;
+	background: url("../img/welcome.jpeg");
+	color: white;
+}
+
+.label, .input, .button {
 	border: 0;
 	margin-bottom: 3px;
 	display: block;
@@ -67,7 +78,7 @@
 	box-sizing: border-box;
 }
 
-.button {
+.signin .button {
 	height: 40px;
 	line-height: 40px;
 	background: #000000;
@@ -77,7 +88,7 @@
 }
 
 .form {
-	background: url("Images/Welcome.jpeg");
+	background: url("../img/Welcome.jpeg");
 	width: 100;
 	heigth: 100;
 }
@@ -94,12 +105,14 @@
 }
 
 .forminput {
+	height: 20%;
+	width: 5%;
 	color: white;
 	background-color: black;
 }
 
-.formh1,.formh2 {
-	color: black;
+.formh1, .formh2 {
+	color: white;
 }
 
 .loginbody {
@@ -113,54 +126,63 @@
 }
 
 .paynowbody {
-	background: url("Images/payment.jpg");
-	align:center;
+	background: url("../img/payment.jpg");
+	align: center;
 }
+
 div.topnav {
-  overflow: hidden;
-  background-color: #ff8040;
+	overflow: hidden;
+	background-color: #ff8040;
 }
+
 div.topnav a {
-  float: left;
-  color: #000000;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+	float: left;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
 }
 
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+	background-color: #ddd;
+	color: blue;
 }
+
 * {
 	box-sizing: border-box;
 }
+
 .error {
 	color: red;
 }
+
 .paynowcol-25 {
 	margin-bottom: 20px;
 	padding: 0 16px;
 	-ms-flex: 25%; /* IE10 */
 	flex: 25%;
 }
+
 .paynowlabel {
 	margin-bottom: 10px;
 	display: block;
 }
+
 .paynowform {
 	padding: 20px;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
 }
-.paynowlabel,.paynowinput {
+
+.paynowlabel, .paynowinput {
 	border: 0;
 	margin-bottom: 3px;
 	display: block;
 	width: 100%;
 }
+
 .paynowinput {
 	height: 25px;
 	line-height: 25px;
@@ -171,31 +193,36 @@ div.topnav a {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
 .paynowcontain {
 	width: 500px;
 	margin: 25px auto;
 }
 
 a {
-	align:left;
+	align: left;
 	color: #2196F3;
 }
+
 .paynowprice {
 	float: right;
 	color: white;
 }
+
 input.paynowbtn {
 	background-color: #4CAF50;
 	color: white;
-	float:right;
+	float: right;
 }
+
 .paynowcontainer {
 	background-color: black;
 	color: white;
 	padding: 20px 80px 60px 80px;
 	border: 1px solid lightgrey;
 	border-radius: 10px;
-}	
+}
+
 .productbutton {
 	background-color: orange;
 	float: right;
@@ -213,13 +240,13 @@ body.resultbody {
 	background-color: black;
 	color: white;
 }
+
 div.column {
 	float: left;
 	width: 33.33%;
 	padding: 10px;
-	height: 300px; 
+	height: 300px;
 }
-
 
 div.row:after {
 	content: "";
@@ -230,6 +257,3 @@ div.row:after {
 .paynowa {
 	float: left;
 }
-
-
-

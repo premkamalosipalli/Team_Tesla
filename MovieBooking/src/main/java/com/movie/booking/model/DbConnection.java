@@ -1,4 +1,4 @@
-package com.movie.booking;
+package com.movie.booking.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

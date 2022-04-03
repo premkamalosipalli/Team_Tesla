@@ -8,70 +8,16 @@
 <title>Booking Cart</title>
 <script src="https://code.jquery.com/jquery-1.10.2.js"
 	type="text/javascript"></script>
-<style type="text/css">
-* {
-	box-sizing: border-box;
-}
-
-.productbody {
-	background-color: black;
-	color: white;
-}
-
-.productcart {
-	float: right;
-	width: 100px;
-	height: 30px;
-}
-/* Create three equal columns that floats next to each other */
-.productcolumn {
-	float: left;
-	width: 33.33%;
-	padding: 10px;
-	height: 300px; /* Should be removed. Only for demonstration */
-}
-/* Clear floats after the columns */
-.productrow:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
-.producta {
-	float: right;
-}
-
-.productbutton {
-	background-color: orange;
-	float: right;
-	color: black;
-	width: 100px;
-	height: 40px;
-}
-
-div.topnav a {
-	float: left;
-	color: #f2f2f2;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-size: 17px;
-}
-
-.topnav a:hover {
-	background-color: #ddd;
-	color: blue;
-}
-</style>
+<link href="./css/movieDesc.css" rel="stylesheet" />
 </head>
 <body class="productbody">
 	<div class="topnav">
-		<a href="welcome.html">Home</a> <a href="logIn.jsp">SignOut</a> <a
+		<a href="view/welcome.html">Home</a> <a href="view/logIn.jsp">SignOut</a> <a
 			href="javascript:history.back()">Movies List</a>
 	</div>
 	<div align="right">
 		<h1>
-			Hello <span>${user}</span>
+			<span>${user}</span>
 		</h1>
 	</div>
 	<div class="productrow">

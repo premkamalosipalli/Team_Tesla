@@ -1,4 +1,4 @@
-package com.movie.booking;
+package com.movie.booking.controller;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -20,9 +20,10 @@ import com.movie.booking.entity.ActorsEntity;
 import com.movie.booking.entity.CastTeamEntity;
 import com.movie.booking.entity.LanguageEntity;
 import com.movie.booking.entity.MovieEntity;
+import com.movie.booking.model.DbConnection;
 
 @WebServlet("/MovieDesc")
-public class MovieDesc extends HttpServlet {
+public class MovieDescServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
@@ -93,7 +94,7 @@ public class MovieDesc extends HttpServlet {
 					request.setAttribute("imageLocation", imageLocation);
 				}
 				request.setAttribute("user", session.getAttribute("userName"));
-				RequestDispatcher display = request.getRequestDispatcher("MovieDesc.jsp");
+				RequestDispatcher display = request.getRequestDispatcher("view/MovieDesc.jsp");
 				display.forward(request, response);
 			}
 		} catch (ClassNotFoundException | SQLException e) {

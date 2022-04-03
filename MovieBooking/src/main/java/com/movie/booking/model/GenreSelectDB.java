@@ -1,4 +1,4 @@
-package com.movie.booking;
+package com.movie.booking.model;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +12,7 @@ import com.movie.booking.entity.GenreListEntity;
 public class GenreSelectDB {
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-	List<GenreListEntity> getMovies(String genreName) {
+	public List<GenreListEntity> getMovies(String genreName) {
 		List<GenreListEntity> movieList = new ArrayList<GenreListEntity>();
 		DbConnection con = new DbConnection();
 		ResultSet resultset;

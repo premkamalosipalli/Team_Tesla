@@ -10,14 +10,14 @@
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
 <script
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/additional-methods.min.js"></script>
-<script type="text/javascript" src="Validate.js"></script>
-<link href="stylesheet.css" rel="stylesheet" />
+<script type="text/javascript" src="../js/Validate.js"></script>
+<link href="../css/stylesheet.css" rel="stylesheet" />
 </head>
 <body class="signin">
 	<h1 align="center">Welcome to Movie Booking</h1>
 	<div class="container">
 		<h4 align="center">Log in to Continue</h4>
-		<form action="login" method="post" id="form" class="form">
+		<form action="../src/../login" method="post" id="form" class="form">
 
 			<label class="label" for="email">Email</label> <input class="input"
 				type="email" name="email" id="email" placeholder="example@email.com"

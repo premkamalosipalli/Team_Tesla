@@ -22,8 +22,7 @@
 		    <br />     
 		<h2>Receipt Details:</h2>
 		    
-		<table>
-			        
+		<table>		        
 			<tr>
 				            
 				<td><b>Merchant:</b></td>             
@@ -64,12 +63,11 @@
 				            
 				<td><b>Total:</b></td>             
 				<td>${transaction.amount.total}USD</td>         
-			</tr>
-			                         
+			</tr>                         
 		</table>
 	</div>
 	<div align="center">
-		<form action="mailer.jsp" method="post">
+		<form action="view/mailer.jsp" method="post">
 			<h4>Click button to receive email confirmation.</h4>
 			<input type="hidden" name="firstName" value="${payer.firstName}">
 			<input type="hidden" name="lastName" value="${payer.lastName}">

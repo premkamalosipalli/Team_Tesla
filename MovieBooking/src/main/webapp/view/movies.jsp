@@ -6,16 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Movie List</title>
-<link href="stylesheet.css" rel="stylesheet" />
+<link href="./css/stylesheet.css" rel="stylesheet" />
 </head>
 <body class="resultbody">
 	<div class="topnav">
-		<a href="welcome.html">Home</a> <a href="logIn.jsp">SignIn</a> <a
-			href="signUp.jsp">SignUp</a> <a href="javascript:history.back()">Color
-			Selection</a>
+		<a href="view/welcome.html">Home</a> <a href="view/logIn.jsp">SignIn</a> <a
+			href="javascript:history.back()">Movie Selection</a>
 		<div align="right">
 			<h1>
-				Hello <span>${user}</span>
+				<span>${user}</span>
 			</h1>
 		</div>
 	</div>

@@ -30,7 +30,7 @@ public class AuthorizePaymentServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		if (orderStatus != false) {
-
+			try {
 			orderList.insertMovie(request.getParameter("user"), request.getParameter("movieName"),
 					Integer.parseInt(request.getParameter("quantity")), orderStatus);
 
@@ -66,8 +66,12 @@ public class AuthorizePaymentServlet extends HttpServlet {
 
 			orderList.updateOrderStatus(email, orderStatus);
 
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
 		}
 
+		}
 	}
 
 }

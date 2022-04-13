@@ -17,12 +17,11 @@ public class MovieOrderDb {
 	PreparedStatement pstmt;
 	ResultSet resultset;
 
-	public void insertMovie(String firstName, String movieName, int quantity, boolean orderStatus) {
+	public void insertMovie(String firstName, String movieName, int quantity, boolean orderStatus) throws ClassNotFoundException, SQLException {
 
 		MovieEntity movieData = retrieveMovie(movieName);
 		RegistrationEntity userData = retrieveUser(firstName);
 
-		try {
 			pstmt = con.getConnection()
 					.prepareStatement("insert into movie_order"
 							+ " (reg_id, email, movieName, movieCost, quantity, totalCost, orderStatus) "
@@ -36,19 +35,11 @@ public class MovieOrderDb {
 			pstmt.setBoolean(7, orderStatus);
 			pstmt.executeUpdate();
 
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
-	public List<MovieOrderEntity> getOrder(String Name, boolean orderStatus) {
+	public List<MovieOrderEntity> getOrder(String Name, boolean orderStatus) throws ClassNotFoundException, SQLException {
 		List<MovieOrderEntity> movieOrderList = new ArrayList<>();
 
-		try {
 			pstmt = con.getConnection()
 					.prepareStatement("select * from movie_order where movieName=? and orderStatus=?");
 			pstmt.setString(1, Name);
@@ -67,31 +58,21 @@ public class MovieOrderDb {
 						totalCost, status));
 			}
 
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
 		return movieOrderList;
 	}
 
-	public void updateOrderStatus(String email, boolean orderStatus) {
-		try {
+	public void updateOrderStatus(String email, boolean orderStatus) throws ClassNotFoundException, SQLException {
+
 			pstmt = con.getConnection().prepareStatement(
 					"update movie_order set orderStatus=" + false + " where email=? and orderStatus=?");
 			pstmt.setString(1, email);
 			pstmt.setBoolean(2, orderStatus);
 			pstmt.executeUpdate();
-		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
-		}
 
 	}
 
-	public MovieEntity retrieveMovie(String movieName) {
+	public MovieEntity retrieveMovie(String movieName) throws ClassNotFoundException, SQLException {
 		MovieEntity movieData = new MovieEntity();
-		try {
 			pstmt = con.getConnection().prepareStatement("select * from movie where movieName=?");
 			pstmt.setString(1, movieName);
 			resultset = pstmt.executeQuery();
@@ -104,18 +85,12 @@ public class MovieOrderDb {
 				movieData.setMovieDate(resultset.getDate(6));
 			}
 
-		} catch (SQLException | ClassNotFoundException e) {
-
-			e.printStackTrace();
-		}
-
 		return movieData;
 	}
 
-	public RegistrationEntity retrieveUser(String firstName) {
+	public RegistrationEntity retrieveUser(String firstName) throws ClassNotFoundException, SQLException {
 
 		RegistrationEntity registrationData = new RegistrationEntity();
-		try {
 			pstmt = con.getConnection().prepareStatement("select * from registration where firstName=?");
 			pstmt.setString(1, firstName);
 			resultset = pstmt.executeQuery();
@@ -128,14 +103,6 @@ public class MovieOrderDb {
 				registrationData.setZipCode(resultset.getString(6));
 				registrationData.setPassword(resultset.getString(7));
 			}
-
-		} catch (ClassNotFoundException e) {
-
-			e.printStackTrace();
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		}
 
 		return registrationData;
 	}

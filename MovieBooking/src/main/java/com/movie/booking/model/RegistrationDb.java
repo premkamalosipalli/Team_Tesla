@@ -5,25 +5,21 @@ import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class RegistrationDb {
-	
 
-	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	ResultSet resultset;
 	PreparedStatement pstmt;
 	DbConnection con = new DbConnection();
 	PrintWriter writer;
 	
-	public void registerUser(HttpServletRequest request, HttpServletResponse response) {
+	public void registerUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ClassNotFoundException, SQLException, ServletException {
 		
-		try {
 			writer = response.getWriter();
 			pstmt = con.getConnection().prepareStatement("select email from  registration where email =?");
 			pstmt.setString(1, request.getParameter("email"));
@@ -44,11 +40,6 @@ public class RegistrationDb {
 				request.getRequestDispatcher("view/signUp.jsp").include(request, response);
 			}
 			request.getRequestDispatcher("view/logIn.jsp").forward(request, response);
-		} catch (ClassNotFoundException | SQLException | IOException | ServletException e1) {
-			LOGGER.info("Error in Registration Class");
-			e1.printStackTrace();
-
-		}
 		
 	}
 

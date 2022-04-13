@@ -1,6 +1,8 @@
 package com.movie.booking.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +19,12 @@ public class RegistrationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		registrationDb.registerUser(request, response);
+		try {
+			registrationDb.registerUser(request, response);
+		} catch (ClassNotFoundException | IOException | SQLException | ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

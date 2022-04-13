@@ -5,6 +5,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 	<display-name>Application Name</display-name>
+	
 	<welcome-file-list>
 		<welcome-file>view/welcome.html</welcome-file>
 		<welcome-file>view/logIn.jsp</welcome-file>

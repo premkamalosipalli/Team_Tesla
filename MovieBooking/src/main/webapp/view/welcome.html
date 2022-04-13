@@ -1,32 +1,150 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Welcome</title>
-<link href="css/stylesheet.css" rel="stylesheet" />
+	<meta charset="UTF-8">
+	<title>Welcome</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
-<body class="welcomebody">
-	<h1 align="center">Movie Booking Web site</h1>
-	<div align="right">
-		<table>
-			<tr>
-				<td><a id="welcomeinput" href="view/logIn.jsp">Log In</a></td>
-				<td><a id="welcomeinput" href="view/signUp.jsp">Create an
-						Account</a></td>
-			</tr>
-		</table>
+<body>
+	<div id="header">
+		<div>
+			<a href=".html" id="logo"><img src="images/logo.png" alt=""></a>
+			<ul>
+				<li>
+					<a href="#">Home</a>
+				</li>
+				<li class="selected">
+					<a href="view/logIn.jsp">Movies</a>
+					<ul>
+						<li class="selected">
+							<a href="#">Now Showing</a>
+						</li>
+						<li>
+							<a href="#">Coming Soon</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="view/logIn.jsp">Ticket Info</a>
+				</li>
+				<li>
+					<a href="view/logIn.jsp">Rentals</a>
+				</li>
+				<li>
+					<a href="view/logIn.jsp">Log In</a>
+				</li>
+				<li>
+					<a href="view/signUp.jsp">Sign Up</a>
+				</li>
+			</ul>
+		</div>
 	</div>
-	<div>
-		<footer class="footer">
-			<p>Posted by: Prem Kamal Osipalli</p>
+	<div id="body" class="movies">
+		<h2>Movies</h2>
+		<ul>
+			<li>
+				<a href="view/logIn.jsp"><img src="img/star_wars2.jpeg" alt=""></a>
+				<h3>Star Wars 2</h3>
+				<p>
+					The story is set ten years after The Phantom Menace, as thousands of planetary systems slowly secede from the Galactic Republic and join the newly-formed Confederacy of Independent Systems, led by former Jedi Master Count Dooku.
+				</p>
+				<a href="view/logIn.jsp">Read More</a>
+			</li>
+			<li>
+				<a href="view/logIn.jsp"><img src="img/spiderman.jpg" alt=""></a>
+				<h3>Spider Man</h3>
+				<p>
+					Marvel has featured Spider-Man in several comic book series, the first and longest-lasting of which is The Amazing Spider-Man. Over the years, the Peter Parker character developed from a shy, nerdy New York City high school student to troubled but outgoing college student, to married high school teacher to, in the late 2000s, a single freelance photographer. In the 2000s, he joins the Avengers. 
+				</p>
+				<a href="view/logIn.jsp">Read More</a>
+			</li>
+			<li>
+				<a href="view/logIn.jsp"><img src="img/frozen2.jpeg" alt=""></a>
+				<h3>Frozen 2</h3>
+				<p>
+					The film was green-lit in March 2015 after a company debate about whether it would be perceived as inferior to the original. It used more-complex, enhanced animation technology than Frozen, and was an interdepartmental collaboration. Anderson-Lopez and Lopez returned as songwriters, and Christophe Beck again composed the music. The film was translated into 46 languages and was accompanied by Into the Unknown: Making Frozen II, a documentary series.				</p>
+				<a href="view/logIn.jsp">Read More</a>
+			</li>
+			<li>
+				<a href="view/logIn.jsp"><img src="img/evildead.jpg" alt=""></a>
+				<h3>Evil Dead</h3>
+				<p>
+					Evil Dead is an American horror film franchise created by Sam Raimi consisting of four feature films and a television series. The series revolves around the Necronomicon Ex-Mortis, an ancient Sumerian text which wreaks havoc upon a group of cabin inhabitants in a wooded area in Tennessee.
+				</p>
+				<a href="view/logIn.jsp">Read More</a>
+			</li>
+		</ul>
+	</div>
+	<div id="footer">
+		<div>
+			<div>
+				<span>Quick Links</span>
+				<ul>
+					<li>
+						<a href="welcome.html">Home</a>
+					</li>
+					<li>
+						<a href="view/logIn.jsp">Ticket Info</a>
+					</li>
+					<li>
+						<a href="#">Location</a>
+					</li>
+					<li>
+						<a href="view/logIn.jsp">Now Showing</a>
+					</li>
+					<li>
+						<a href="view/logIn.jsp">Rentals</a>
+					</li>
+					<li>
+						<a href="view/logIn.jsp">Contact</a>
+					</li>
+					<li>
+						<a href="view/logIn.jsp">Coming Soon</a>
+					</li>
+					<li>
+						<a href="about.html">The Company</a>
+					</li>
+					<li>
+						<a href="blog.html">Blog</a>
+					</li>
+				</ul>
+			</div>
+			<div class="section">
+				<span>Recent Tweets</span>
+				<ul>
+					<li>
+						<p>
+							No one is born hating another person because of the color of his skin or his background or his religion.
+						</p>
+						<span><a href="#">- 1 day ago</a></span>
+					</li>
+					<li>
+						<p>
+							Kobe was a legend on the court and just getting started in what would have been just as meaningful a second act. To lose Gianna is even more heartbreaking to us as parents. 
+						</p>
+						<span><a href="#">- 2 day ago</a></span>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<span>Sign Up For Our Mailing List</span>
+				<p>
+					Enter your emailId to for any queries....
+				</p>
+				<form action="welcome.html">
+					<input type="text" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Enter Email Address Here':this.value;" value="Enter Email Address Here">
+					<input type="button" value="">
+				</form>
+			</div>
 			<p>
-				Contact information: <a href="mailto:premkamalosipalli@gmail.com">premkamalosipalli@gmail.com</a>.
+				&#169; 2023 Movie Booking
 			</p>
-			<p>
-				<i>Note:</i> Horror Movies are Strictly Prohibited to age holders
-				below 18 years.
-			</p>
-		</footer>
+			<div class="connect">
+				<span>Stay Connected:</span> <a href="https://www.facebook.com/Kamal.Osipalli" id="facebook">FaceBook</a>
+			<a href="https://www.instagram.com/premkamal.osipalli/" id="twitter">Twitter</a>
+			<a href="https://www.linkedin.com/in/prem-kamal-osipalli-73ba65114/" id="googleplus">LinkedIn</a>
+		</div>
+		</div>
 	</div>
 </body>
 </html>

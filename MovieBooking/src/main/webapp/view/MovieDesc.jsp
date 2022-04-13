@@ -9,16 +9,72 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"
 	type="text/javascript"></script>
 <link href="./css/movieDesc.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<style>
+
+.row {
+  margin-left:-5px;
+  margin-right:-5px;
+}
+  
+.column {
+  float: left;
+  width: 30%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px;
+}
+</style>
 </head>
 <body class="productbody">
-	<div class="topnav">
-		<a href="view/welcome.html">Home</a> <a href="view/logIn.jsp">SignOut</a> <a
-			href="javascript:history.back()">Movies List</a>
-	</div>
-	<div align="right">
-		<h1>
-			<span>${user}</span>
-		</h1>
+	<div id="header">
+		<div>
+			<a href=".html" id="logo"><img src="images/logo.png" alt=""></a>
+			<ul>
+				<li>
+					<a href="view/welcome.html">Home</a>
+				</li>
+				<li class="selected">
+					<a href="#">Movie List</a>
+					<ul>
+						<li class="selected">
+							<a href="#">Now Showing</a>
+						</li>
+						<li>
+							<a href="#">Coming Soon</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Ticket Info</a>
+				</li>
+				<li>
+					<a href="#">Rentals</a>
+				</li>
+				<li>
+					<a href="logIn.jsp">Log In</a>
+				</li>
+				<li>
+					<a href="#">Sign Up</a>
+				</li>
+			</ul>
+		</div>
 	</div>
 	<div class="productrow">
 		<div class="productcolumn">
@@ -30,8 +86,8 @@
 			</h1>
 			<table>
 				<tr>
-					<td><hr>Movie Name:</td>
-					<td><hr> <span class="price">${movieList.movieName}</span></td>
+					<td><hr>MovieName:</td>
+					<td><hr><span class="price">${movieList.movieName}</span></td>
 				</tr>
 				<tr>
 					<td>Cost:</td>
@@ -52,20 +108,27 @@
 			</table>
 		</div>
 		<div class="productcart">
-			<img alt="" src="Images/shopping-cart.png"> <a id="cartItems"></a>
-
+			<img alt="" src="img/shopping-cart.png"> <a id="cartItems"></a>
 		</div>
 		<div class="productcolumn">
-			<h1 align="center" style="color: Brown;">Ready To Sell This Beer</h1>
+			<h1 align="center" style="color: Red;">Buy Tickets for Movie Selected:</h1>
 			<hr>
 			<div>
 				<h2>
-					Movie Selected:<a class="producta" href="#">${movieList.movieName}</a>
+					Movie Selected:<a style="color:#a5a5a5!important;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:20px;
+	line-height:28px;
+	text-transform: uppercase;" class="producta" href="#">${movieList.movieName}</a>
 				</h2>
 			</div>
 			<div>
 				<h2>
-					Movie Cost:<a class="producta" name="movieCost" href="#" id="demo">${movieList.movieCost}</a>
+					Movie Cost:<a style="color:#a5a5a5!important;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:20px;
+	line-height:28px;
+	text-transform: uppercase;" class="producta" name="movieCost" href="#" id="demo">${movieList.movieCost}</a>
 				</h2>
 			</div>
 			<hr>
@@ -111,37 +174,119 @@
 		}		
 	</script>
 	</div>
-	<h4>Languages:</h4>
-	<table>
-		<c:forEach items="${languageList}" var="languageList">
+	<br>
+<div class="row">
+  <div class="column">
+    <table>
+      <tr>
+        <th><b>LANGUAGE</b></th>
+      </tr>
+      <c:forEach items="${languageList}" var="languageList">
 			<tr>
-				<td><c:out value="${languageList.language_id}" /></td>
 				<td><c:out value="${languageList.language}" /></td>
-				<td><c:out value="${languageList.movie_id}" /></td>
 			</tr>
 		</c:forEach>
-	</table>
-	<h4>Actors:</h4>
-	<table>
-		<c:forEach items="${actorsList}" var="actorsList">
+    </table>
+  </div>
+  <div class="column">
+    <table>
+      <tr>
+        <th><b>ACTOR NAME</b></th>
+        <th><b>ACTOR ROLE</b></th>
+      </tr>
+      <c:forEach items="${actorsList}" var="actorsList">
 			<tr>
-				<td><c:out value="${actorsList.actor_id}" /></td>
 				<td><c:out value="${actorsList.fullName}" /></td>
 				<td><c:out value="${actorsList.role}" /></td>
-				<td><c:out value="${actorsList.movie_id}" /></td>
 			</tr>
 		</c:forEach>
-	</table>
-	<h4>Cast Team:</h4>
-	<table>
-		<c:forEach items="${castTeamList}" var="castTeamList">
+    </table>
+  </div>
+  <div class="column">
+    <table>
+      <tr>
+        <th><b>TEAM</b></th>
+        <th><b>EXPERIENCE</b></th>
+      </tr>
+      <c:forEach items="${castTeamList}" var="castTeamList">
 			<tr>
-				<td><c:out value="${castTeamList.castTeam_id}" /></td>
 				<td><c:out value="${castTeamList.fullName}" /></td>
 				<td><c:out value="${castTeamList.experience}" /></td>
-				<td><c:out value="${castTeamList.movie_id}" /></td>
 			</tr>
 		</c:forEach>
-	</table>
+    </table>
+  </div>
+</div>
+<div id="footer">
+		<div>
+			<div>
+				<span>Quick Links</span>
+				<ul>
+					<li>
+						<a href="view/welcome.html">Home</a>
+					</li>
+					<li>
+						<a href="V">Ticket Info</a>
+					</li>
+					<li>
+						<a href="#">Location</a>
+					</li>
+					<li>
+						<a href="V">Now Showing</a>
+					</li>
+					<li>
+						<a href="V">Rentals</a>
+					</li>
+					<li>
+						<a href="V">Contact</a>
+					</li>
+					<li>
+						<a href="V">Coming Soon</a>
+					</li>
+					<li>
+						<a href="about.html">The Company</a>
+					</li>
+					<li>
+						<a href="blog.html">Blog</a>
+					</li>
+				</ul>
+			</div>
+			<div class="section">
+				<span>Recent Tweets</span>
+				<ul>
+					<li>
+						<p>
+							No one is born hating another person because of the color of his skin or his background or his religion.
+						</p>
+						<span><a href="#">- 1 day ago</a></span>
+					</li>
+					<li>
+						<p>
+							Kobe was a legend on the court and just getting started in what would have been just as meaningful a second act. To lose Gianna is even more heartbreaking to us as parents. 
+						</p>
+						<span><a href="#">- 2 day ago</a></span>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<span>Sign Up For Our Mailing List</span>
+				<p>
+					Enter your emailId to for any queries....
+				</p>
+				<form action="welcome.html">
+					<input type="text" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Enter Email Address Here':this.value;" value="Enter Email Address Here">
+					<input type="button" value="">
+				</form>
+			</div>
+			<p>
+				&#169; 2023 Movie Booking
+			</p>
+			<div class="connect">
+				<span>Stay Connected:</span> <a href="https://www.facebook.com/Kamal.Osipalli" id="facebook">FaceBook</a>
+			<a href="https://www.instagram.com/premkamal.osipalli/" id="twitter">Twitter</a>
+			<a href="https://www.linkedin.com/in/prem-kamal-osipalli-73ba65114/" id="googleplus">LinkedIn</a>
+		</div>
+		</div>
+	</div>
 </body>
 </html>

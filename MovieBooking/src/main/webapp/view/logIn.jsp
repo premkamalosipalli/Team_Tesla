@@ -16,30 +16,30 @@
 <body>
 <div id="header">
 		<div>
-			<a href=".html" id="logo"><img src="../images/logo.png" alt=""></a>
+			<a href="index.html" id="logo"><img src="../images/logo.png" alt=""></a>
 			<ul>
 				<li>
-					<a href="javascript:history.back()">Home</a>
+					<a href="welcome.html">Home</a>
 				</li>
-				<li class="selected">
-					<a href="view/logIn.jsp">Movies</a>
+				<li>
+					<a href="logIn.jsp">Movies</a>
 					<ul>
-						<li class="selected">
+						<li>
 							<a href="#">Now Showing</a>
 						</li>
 						<li>
-							<a href="#">Coming Soon</a>
+							<a href="#">Comming Soon</a>
 						</li>
 					</ul>
 				</li>
 				<li>
-					<a href="#">Ticket Info</a>
+					<a href="ticket-info.html">Ticket Info</a>
+				</li>
+				<li class="selected">
+					<a href="rentals.html">Rentals</a>
 				</li>
 				<li>
-					<a href="#">Rentals</a>
-				</li>
-				<li>
-					<a href="#">Log In</a>
+					<a href="logIn.jsp">Log In</a>
 				</li>
 				<li>
 					<a href="signUp.jsp">Sign Up</a>
@@ -69,25 +69,25 @@
 				<span>Quick Links</span>
 				<ul>
 					<li>
-						<a href="view/welcome.html">Home</a>
+						<a href="welcome.html">Home</a>
 					</li>
 					<li>
-						<a href="V">Ticket Info</a>
+						<a href="ticket-info.html">Ticket Info</a>
 					</li>
 					<li>
 						<a href="#">Location</a>
 					</li>
 					<li>
-						<a href="V">Now Showing</a>
+						<a href="logIn.jsp">Now Showing</a>
 					</li>
 					<li>
-						<a href="V">Rentals</a>
+						<a href="rentals.html">Rentals</a>
 					</li>
 					<li>
-						<a href="V">Contact</a>
+						<a href="about.html">Contact</a>
 					</li>
 					<li>
-						<a href="V">Coming Soon</a>
+						<a href="logIn.jsp">Coming Soon</a>
 					</li>
 					<li>
 						<a href="about.html">The Company</a>

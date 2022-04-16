@@ -7,15 +7,6 @@
 	<display-name>Application Name</display-name>
 	
 	<welcome-file-list>
-		<welcome-file>view/welcome.html</welcome-file>
-		<welcome-file>view/logIn.jsp</welcome-file>
-		<welcome-file>view/signUp.jsp</welcome-file>
-		<welcome-file>view/genres.jsp</welcome-file>
-		<welcome-file>view/movies.jsp</welcome-file>
-		<welcome-file>view/MovieDesc.jsp</welcome-file>
-		<welcome-file>view/receipt.jsp</welcome-file>
-		<welcome-file>view/review.jsp</welcome-file>
-		<welcome-file>view/error.jsp</welcome-file>
-		<welcome-file>view/cancel.jsp</welcome-file>
+		<welcome-file>view/index.html</welcome-file>
 	</welcome-file-list>
 </web-app>

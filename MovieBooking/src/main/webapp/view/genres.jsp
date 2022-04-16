@@ -10,34 +10,37 @@
 <body>
 	<div id="header">
 		<div>
-			<a href=".html" id="logo"><img src="images/logo.png" alt=""></a>
+			<a href="view/welcome.html" id="logo"><img src="images/logo.png" alt=""></a>
 			<ul>
 				<li>
-					<a href="#">Home</a>
+					<a href="view/welcome.html">Home</a>
 				</li>
-				<li class="selected">
-					<a href="#">Movies</a>
+				<li>
+					<a href="view/logIn.jsp">Movies</a>
 					<ul>
-						<li class="selected">
+						<li>
 							<a href="#">Now Showing</a>
 						</li>
 						<li>
-							<a href="#">Coming Soon</a>
+							<a href="#">Comming Soon</a>
 						</li>
 					</ul>
 				</li>
 				<li>
-					<a href="#">Ticket Info</a>
+					<a href="view/ticket-info.html">Ticket Info</a>
+				</li>
+				<li class="selected">
+					<a href="view/rentals.html">Rentals</a>
 				</li>
 				<li>
-					<a href="#">Rentals</a>
-				</li>
-				<li>
-					<a href="logIn.jsp">Log In</a>
-				</li>
-				<li>
-					<a href="#">Sign Up</a>
-				</li>
+						<a href="view/about.html">About</a>
+					</li>
+					<li>
+						<a href="view/blog.html">Blog</a>
+						</li>
+						<li>
+						<a href="view/logIn.jsp">Sign Out</a>
+					</li>
 			</ul>
 		</div>
 	</div>
@@ -70,28 +73,28 @@
 						<a href="view/welcome.html">Home</a>
 					</li>
 					<li>
-						<a href="V">Ticket Info</a>
+						<a href="view/ticket-info.html">Ticket Info</a>
 					</li>
 					<li>
 						<a href="#">Location</a>
 					</li>
 					<li>
-						<a href="V">Now Showing</a>
+						<a href="view/logIn.jsp">Now Showing</a>
 					</li>
 					<li>
-						<a href="V">Rentals</a>
+						<a href="view/rentals.html">Rentals</a>
 					</li>
 					<li>
-						<a href="V">Contact</a>
+						<a href="view/about.html">Contact</a>
 					</li>
 					<li>
-						<a href="V">Coming Soon</a>
+						<a href="view/logIn.jsp">Coming Soon</a>
 					</li>
 					<li>
-						<a href="about.html">The Company</a>
+						<a href="view/about.html">The Company</a>
 					</li>
 					<li>
-						<a href="blog.html">Blog</a>
+						<a href="view/blog.html">Blog</a>
 					</li>
 				</ul>
 			</div>

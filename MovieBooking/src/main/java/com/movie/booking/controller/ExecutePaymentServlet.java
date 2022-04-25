@@ -16,12 +16,15 @@ import com.paypal.base.rest.PayPalRESTException;
 @WebServlet("/execute_payment")
 public class ExecutePaymentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private String paymentId;
+	private String payerId;
+	private String emailId;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String paymentId = request.getParameter("paymentId");
-		String payerId = request.getParameter("PayerID");
-		String emailId = request.getParameter("email");
+		paymentId = request.getParameter("paymentId");
+		payerId = request.getParameter("PayerID");
+		emailId = request.getParameter("email");
 
 		try {
 			PaymentServices paymentServices = new PaymentServices();

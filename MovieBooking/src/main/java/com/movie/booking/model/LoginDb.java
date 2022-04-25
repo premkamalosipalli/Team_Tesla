@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+
+import com.movie.booking.controller.JWebUnitTest;
 import com.movie.booking.entity.RegistrationEntity;
 
 public class LoginDb {
@@ -20,15 +24,16 @@ public class LoginDb {
 
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	
-
-	
 	DbConnection con = new DbConnection();
 	Statement stmt = null;
 	ResultSet resultset = null;
 	PrintWriter writer;
 	RegistrationEntity register = new RegistrationEntity();
+	
+	Result result = JUnitCore.runClasses(JWebUnitTest.class);
 
-	public void validateUser(String emailId, String password, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+	public void validateUser(String emailId, String password, HttpServletRequest request, 
+			HttpServletResponse response, HttpSession session) throws ServletException, IOException {
 		
 		
 		try {
@@ -64,6 +69,44 @@ public class LoginDb {
 			LOGGER.info("Error in Login Class");
 			e.printStackTrace();
 		}
+		
+	}
+	
+	public String userLogin(String emailId, String password) throws ServletException, IOException {
+		
+		String emailIdN = null;
+		
+		try {
+			stmt = con.getConnection().createStatement();
+			resultset = stmt.executeQuery("SELECT * FROM Registration WHERE EMAIL='" + emailId + "'");
+
+			if (!(resultset.next())) {
+				writer.println("User Credentials Not Found!Create an Account...");
+
+			} else {
+				if (emailId.equals(resultset.getString("EMAIL"))
+
+						&& password.equals(resultset.getString("PASSWORD"))) {
+
+					emailIdN =resultset.getString("EMAIL");
+					register.setFirstName(resultset.getString(2));
+					register.setLastName(resultset.getString(3));
+					register.setMobile(resultset.getString(4));
+					register.setEmail(resultset.getString(5));
+					register.setZipCode(resultset.getString(6));
+					register.setPassword(resultset.getString(7));
+					
+					return emailIdN;
+				} else {
+					writer.println("Invalid Credentials SignUp");
+				}
+			}
+		} catch (SQLException | ClassNotFoundException  e) {
+			LOGGER.info("Error in Login Class");
+			e.printStackTrace();
+		}
+		
+		return emailIdN;
 		
 	}
 

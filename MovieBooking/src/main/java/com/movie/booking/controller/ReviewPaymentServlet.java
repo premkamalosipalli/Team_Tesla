@@ -17,11 +17,14 @@ import com.paypal.base.rest.PayPalRESTException;
 @SuppressWarnings("serial")
 @WebServlet("/review_payment")
 public class ReviewPaymentServlet extends HttpServlet {
+	
+	private String paymentId;
+	private String payerId;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String paymentId = request.getParameter("paymentId");
-		String payerId = request.getParameter("PayerID");
+		paymentId = request.getParameter("paymentId");
+		payerId = request.getParameter("PayerID");
 
 		try {
 			PaymentServices paymentServices = new PaymentServices();

@@ -10,4 +10,4 @@ This Project is about Movie Ticket Booking using HTML, JSP, JQuery as front end 
  
  Fallow the steps to create connection with database:
  1. Open my sql workbench and open your local host you are running on.
- 2. Create a schema as "movies" and create requried tables in it. 
+ 2. Create a schema as "movieBooking" and create requried tables in it. 
